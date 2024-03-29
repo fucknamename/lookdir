@@ -1,0 +1,19 @@
+
+exe 在Windows上已服务形式运行
+参考：https://www.xiaoweigod.com/pc/1638.html
+
+
+1.管理员身份运行cmd
+2.定位到nssm.exe的文件夹中，比如和目标exe放一起
+3.执行 nssm install lookdir
+4.在弹出的窗口里面选择 path, 然后install service
+5.进入服务里面，查看刚刚安装好的lookdir, 启动即可, 建议自动
+6.执行 sc delete "lookdir" 可以删除注册的服务
+
+
+sc 命令方式注册服务
+注册服务
+sc create lookdir binpath= C:\PerfLogs\lookdir.exe type= own start= auto displayname= fs-server
+
+卸载服务
+sc delete "lookdir"
